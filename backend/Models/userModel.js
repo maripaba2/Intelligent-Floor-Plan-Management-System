@@ -14,6 +14,10 @@ const UserSchema = new mongoose.Schema({
     userimage: {
         type: String,
         required: [true, 'Email is required']
+    },
+    role: {
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true

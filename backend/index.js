@@ -14,6 +14,15 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json()); // To handle JSON payloads
 
+const adminRoutes = require('./routes/admin'); // Admin routes
+const bookingRoutes = require('./routes/bookings'); // Booking routes
+const suggetionbookingRoutes = require('./routes/suggestion'); // Booking routes
+
+app.use('/admin', adminRoutes); // Admin routes
+app.use('/bookings', bookingRoutes); // Booking routes
+app.use('/suggest-rooms', suggetionbookingRoutes); // Booking routes
+
+
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
@@ -33,7 +42,6 @@ app.post('/user', async (req, res) => {
     try {
         // Check if a user with the same email or username already exists
         const existingUser = await User.findOne({ useremail });
-        console.log(existingUser);
         
 
         if (existingUser) {
