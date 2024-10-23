@@ -29,6 +29,15 @@ router.post('/', async (req, res) => {
     }
   });
 
+  router.get('/', async (req, res) => {
+    try {
+      const bookings = await Booking.find({}); // Fetch all bookings from the database
+      res.json(bookings); // Return bookings as JSON
+    } catch (error) {
+      res.status(500).json({ message: error.message }); // Handle errors
+    }
+  });
+
   router.get('/floors', async (req, res) => {
     try {
       const floors = await Floor.find({});

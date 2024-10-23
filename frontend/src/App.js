@@ -6,6 +6,7 @@ import UserBooking from './pages/UserBooking';
 import Home from './pages/Home';
 import AdminDashboard from './pages/AdminDashboard';
 import RoomSuggestion from './pages/RoomSuggestion';
+import Status from './pages/Status';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/booking" element={<UserBooking />} />
         <Route path="/suggestion" element={<RoomSuggestion />} />
+        <Route path="/status" element={<Status />} />
         <Route path="/admin_dashboard" element={<AdminDashboard />} />
       </Routes>
     </div>
