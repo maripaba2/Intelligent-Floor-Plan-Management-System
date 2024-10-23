@@ -1,11 +1,29 @@
 const express = require('express');
-const Floor = require('../Models/Floor'); // Ensure this is your model for fetching floors and rooms
-const Booking = require('../Models/Booking'); // Ensure this is your model for booking
+const Floor = require('../Models/Floor'); 
+const Booking = require('../Models/Booking'); 
 const router = express.Router();
-
 
 const formatDate = (date) => {
   return new Date(date).toISOString().split('T')[0];
+};
+
+// Helper function to perform binary search
+const binarySearch = (rooms, capacity) => {
+  let left = 0;
+  let right = rooms.length - 1;
+  let bestRoom = null;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (rooms[mid].capacity >= capacity) {
+      bestRoom = rooms[mid]; // Potential best room found
+      right = mid - 1; // Look for a better room on the left
+    } else {
+      left = mid + 1; // Look on the right
+    }
+  }
+
+  return bestRoom; // Return the best room found
 };
 
 // Endpoint to suggest rooms based on criteria
@@ -19,10 +37,9 @@ router.post('/', async (req, res) => {
     // Fetch all bookings for the specified date
     const bookings = await Booking.find({ date });
 
-    // Implement your room suggestion algorithm here
-    const suggestedRooms = [];
+    // Prepare a list of available rooms
+    const availableRooms = [];
 
-    // Sample algorithm: Filter rooms based on capacity, availability, and other criteria
     floors.forEach(floor => {
       floor.rooms.forEach(room => {
         // Check if the room has sufficient capacity
@@ -31,26 +48,38 @@ router.post('/', async (req, res) => {
           const isRoomBooked = bookings.some(booking => 
             booking.room_no === room.room_no &&
             booking.floor_no === floor.floor_no &&
-            formatDate(booking.date) === date  // You can enhance the logic here to consider overlap of time durations
+            formatDate(booking.date) === date 
           );
-          console.log(bookings);
-          console.log(req.body);
-          
 
-          // If the room is not booked, add it to the suggested rooms
+          // If the room is not booked, add it to the available rooms
           if (!isRoomBooked) {
-            suggestedRooms.push({
+            availableRooms.push({
               floor_no: floor.floor_no,
               room_no: room.room_no,
               capacity: room.capacity,
-              // Add more room details as needed
-            });
+            }); // Add room object directly for easier processing
           }
         }
       });
     });
 
-    res.json(suggestedRooms);
+    // Sort available rooms by capacity
+    availableRooms.sort((a, b) => a.capacity - b.capacity);
+    
+    // Use binary search to find the best room
+    const bestRoom = binarySearch(availableRooms, max_cap);
+
+    if (bestRoom) {
+      console.log(bestRoom);
+      
+      res.json({
+        floor_no: bestRoom.floor_no,
+        room_no: bestRoom.room_no,
+        capacity: bestRoom.capacity,
+      });
+    } else {
+      res.status(404).json({ message: "No suitable room found." });
+    }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -25,13 +25,16 @@ const RoomSuggestion = () => {
     try {
       // Send a POST request to your backend to suggest rooms
       const response = await axios.post('http://localhost:3001/suggest-rooms', formData);
-      setSuggestedRooms(response.data); // Set the suggested rooms from the response
-      console.log('Suggested rooms:', response.data);
+      setSuggestedRooms([response.data]); // Set the best room as an array for consistency in rendering
+      
+      console.log('Suggested room:', response.data);
     } catch (error) {
-      console.error('Error fetching suggested rooms:', error);
+      console.error('Error fetching suggested room:', error);
       alert('Failed to fetch suggestions. Please try again.');
     }
   };
+  
+  
 
   
   return (
@@ -83,17 +86,18 @@ const RoomSuggestion = () => {
       </form>
 
       {suggestedRooms.length > 0 && (
-        <div>
-          <h2>Suggested Rooms:</h2>
-          <ul>
-            {suggestedRooms.map((room, index) => (
-              <li key={index}>
-                Floor: {room.floor_no}, Room: {room.room_no}, Capacity: {room.capacity}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+  <div>
+    <h2>Suggested Room:</h2>
+    <ul>
+      {suggestedRooms.map((room, index) => (
+        <li key={index}>
+          Floor: {room.floor_no}, Room: {room.room_no}, Capacity: {room.capacity}
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
     </div>
   );
 };

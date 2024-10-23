@@ -65,9 +65,32 @@ const UserBooking = () => {
     <div>
       <h1>Book a Room</h1>
       <form onSubmit={handleSubmit}>
-        <div>
+        
+      </form>
+
+
+      <div class="min-h-screen py-6 flex flex-col justify-center sm:py-12">
+        <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-[#A0D683] to-green-400 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+            </div>
+            <div class="text-white relative px-4 py-10 bg-gray-900 shadow-lg sm:rounded-3xl sm:p-20">
+
+                <div class="text-center pb-6">
+                    <h1 class="text-3xl">Book a Room</h1>
+                    {/* 
+                    <p class="text-gray-300">
+                        Fill up the form below to send us a message.
+                    </p> */}
+                </div>
+
+                <form onSubmit={handleSubmit}>
+
+
+                <div>
           <label>Floor Number:</label>
           <select
+            class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             name="floor_no"
             value={selectedFloor}
             onChange={(e) => {
@@ -88,6 +111,7 @@ const UserBooking = () => {
         <div>
           <label>Room Number:</label>
           <select
+            class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             name="room_no"
             value={formData.room_no}
             onChange={handleChange}
@@ -108,6 +132,7 @@ const UserBooking = () => {
         <div>
           <label>Maximum Capacity:</label>
           <input
+            class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="number"
             name="max_cap"
             value={formData.max_cap}
@@ -118,6 +143,7 @@ const UserBooking = () => {
         <div>
           <label>Time Duration (in minutes):</label>
           <input
+            class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="number"
             name="time_duration"
             value={formData.time_duration}
@@ -128,6 +154,7 @@ const UserBooking = () => {
         <div>
           <label>Date:</label>
           <input
+            class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="date"
             name="date"
             value={formData.date}
@@ -138,6 +165,7 @@ const UserBooking = () => {
         <div>
           <label>Email:</label>
           <input
+            class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="email"
             name="user_email"
             value={formData.user_email}
@@ -149,6 +177,7 @@ const UserBooking = () => {
         <div>
           <label>Priority Number:</label>
           <input
+            class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="number"
             name="priority_no"
             value={formData.priority_no}
@@ -157,8 +186,15 @@ const UserBooking = () => {
             required
           />
         </div>
-        <button type="submit">Book Room</button>
-      </form>
+        <button class="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Book Room</button>
+
+              
+
+                </form>
+            </div>
+        </div>
+    </div>
+
     </div>
   );
 };

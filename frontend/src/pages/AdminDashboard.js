@@ -170,16 +170,16 @@ const AdminDashboard = () => {
       <input type="number" placeholder="Floor Number" value={floorNo} onChange={(e) => setFloorNo(e.target.value)} />
       <button onClick={addFloor}>Add Floor</button>
 
-      {/* Select Floor */}
-      <h2>Select Floor</h2>
-      <select value={selectedFloor} onChange={(e) => setSelectedFloor(e.target.value)}>
-        <option value="">Select a floor</option>
-        {floors.map((floor) => (
-          <option key={floor._id} value={floor._id}>
-            Floor {floor.floor_no}
-          </option>
-        ))}
-      </select>
+      
+<h2>Select Floor</h2>
+<select value={selectedFloor} onChange={(e) => setSelectedFloor(e.target.value)}>
+  <option value="">Select a floor</option>
+  {floors.map((floor) => (
+    <option key={floor._id} value={floor._id}>
+      Floor {floor.floor_no} (Version: {floor.version}, Merkle Hash: {floor.merkleHash})
+    </option>
+  ))}
+</select>
 
       {/* Manage Rooms for the Selected Floor */}
       {selectedFloor && (
