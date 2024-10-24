@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import AdminDashboard from './pages/AdminDashboard';
 import RoomSuggestion from './pages/RoomSuggestion';
 import Status from './pages/Status';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/status" element={<Status />} />
         <Route path="/admin_dashboard" element={<AdminDashboard />} />
       </Routes>
+      <Footer/>
     </div>
   </Router>
 

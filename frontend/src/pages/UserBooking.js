@@ -62,13 +62,6 @@ const UserBooking = () => {
   };
 
   return (
-    <div>
-      <h1>Book a Room</h1>
-      <form onSubmit={handleSubmit}>
-        
-      </form>
-
-
       <div class="min-h-screen py-6 flex flex-col justify-center sm:py-12">
         <div class="relative py-3 sm:max-w-xl sm:mx-auto">
             <div
@@ -106,9 +99,7 @@ const UserBooking = () => {
               </option>
             ))}
           </select>
-        </div>
 
-        <div>
           <label>Room Number:</label>
           <select
             class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -195,7 +186,6 @@ const UserBooking = () => {
         </div>
     </div>
 
-    </div>
   );
 };
 
