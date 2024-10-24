@@ -37,7 +37,7 @@ const Status = () => {
   const userBookings = bookings.filter(booking => booking.user_email === user.email);
 
   return (
-    <div className="p-5">
+    <div className="p-5 min-h-[82vh]">
       <h1 className="text-2xl font-semibold mb-4">Your Bookings</h1>
       <div className="overflow-x-auto">
         <table className="w-full table-auto bg-white rounded-lg shadow-lg border-collapse">

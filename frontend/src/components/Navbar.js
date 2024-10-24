@@ -69,7 +69,7 @@ const Navbar2 = () => {
               <rect x="14" y="11" width="7" height="12" />
             </svg>
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-              Company
+              Rishi
             </span>
           </a>
           <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -89,6 +89,25 @@ const Navbar2 = () => {
                   Smart Recomendation
                 </a>
               </li>
+              <li >
+                <a
+                  href="/status"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400 hover:underline"
+                >
+                  Your Bookings
+                </a>
+              </li>
+              {user?.email === 'jungharerishi@gmail.com' && (
+                <li>
+                  <a
+                    href="/admin_dashboard"
+                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400 hover:underline"
+                  >
+                    Admin Dashboard
+                  </a>
+                </li>
+              )}
+
           </ul>
           
           <ul className="flex items-center hidden space-x-8 lg:flex">

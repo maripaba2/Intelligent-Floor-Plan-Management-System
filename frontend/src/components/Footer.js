@@ -4,7 +4,7 @@ const Footer = ()=>{
 return(
 
 
-<div className="bg-black bottom-0 left-0 right-0 ">
+<div className="bg-black  left-0 right-0 relative bottom-0 ">
     <div className="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
         {/* <a href="#">
             <img className="w-auto h-7" src="https://merakiui.com/images/full-logo.svg" alt="">

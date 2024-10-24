@@ -6,9 +6,9 @@ const Home = () => {
   const { user, isAuthenticated } = useAuth0();
   return (
     <div
-      className="relative flex justify-center items-center" // Flexbox for centering
+      className="relative flex justify-center items-center min-h-[80vh]" // Flexbox for centering
       style={{ 
-        height: '80vh', // Set the desired height
+        height: '82vh', // Set the desired height
         backgroundImage: `url(${hehe})`, 
         backgroundSize: '180%', 
         backgroundPosition: 'center', 
