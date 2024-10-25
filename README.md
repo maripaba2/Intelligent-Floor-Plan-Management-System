@@ -38,6 +38,30 @@ The *Intelligent Floor Plan Management System* is a web application designed to 
   - For each booking requirement, the room with equivalent or just larger capacity is allocated using *Binary Search* with a time complexity of *O(log n)*.
   - When a room becomes unoccupied, the requirement equivalent or just smaller than the capacity is allocated using Binary Search, also with a time complexity of **O(log n)*.
 
+---
+## User Roles and Permissions
+
+### Normal User
+Normal users have the following permissions and features:
+- **Room Recommendations**: View room suggestions based on availability and capacity requirements.
+- **Book Rooms**: Book available rooms as per their needs.
+- **View Bookings**: Access a list of all rooms booked under their account, providing an organized history of bookings.
+
+  ![Screenshot 2024-10-25 091046](https://github.com/user-attachments/assets/7c06ad26-440a-4715-b3ff-5219ab68be1f)
+
+
+### Admin User
+Admin users have additional permissions:
+- **Floor Management**: Add new floors, update existing floor details, and delete floors as needed.
+- **Room Management**: Add, update, and delete rooms, including setting details like room number, capacity, and descriptions.
+- **Update Room Details**: Modify room specifications to keep the system updated.
+- **Change Tracking with Merkle Tree**: Monitor and verify any changes in room or floor configurations through a secure Merkle Tree-based version control system.
+
+  ![Screenshot 2024-10-25 091128](https://github.com/user-attachments/assets/07466309-56c6-4fec-b763-9f67f596703a)
+
+
+---
+
 ## Technologies Used
 - *Frontend*: React.js
 - *Backend*: Node.js, Express.js
