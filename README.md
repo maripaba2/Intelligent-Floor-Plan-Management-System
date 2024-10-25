@@ -27,6 +27,7 @@ The *Intelligent Floor Plan Management System* is a web application designed to 
   - *Efficient Storage*: By using hashes to represent data, the system can reduce the amount of storage required. Only the hashes need to be stored instead of entire data sets.
   - *Fast Change Detection: The ability to track changes in **O(log n)* time complexity allows for quick updates and ensures data integrity. This is particularly important in a system that frequently modifies room and floor data.
   - *Security*: Hashes provide a layer of security, ensuring that data cannot be altered without detection. Any change in the data will result in a different hash, alerting administrators to potential issues.
+![Screenshot 2024-10-25 090945](https://github.com/user-attachments/assets/ccdaf53e-476b-434b-af3d-c015081e78b4)
 
 ### Room Suggestion
 #### Binary Search
